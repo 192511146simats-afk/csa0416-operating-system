@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a[20],n,head,i,total=0;
+
+    scanf("%d",&n);
+
+    for(i=0;i<n;i++) scanf("%d",&a[i]);
+
+    scanf("%d",&head);
+
+    for(i=0;i<n;i++)
+        if(a[i]>=head) {
+            total+=abs(head-a[i]);
+            head=a[i];
+        }
+
+    total+=(199-head)+199;
+    head=0;
+
+    for(i=0;i<n;i++)
+        if(a[i]<head) {
+            total+=abs(head-a[i]);
+            head=a[i];
+        }
+
+    printf("Total Head Movement = %d",total);
+    return 0;
+}
